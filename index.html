@@ -5,16 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookStore Inventory</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 
 </head>
 <body>
-    <div id="container">
     <h1 class="header">Bookstore Inventory</h1>
+    <div id="container">
     <section class="add-book">
-        HI
+        <h2 class="add-new-book">Add New Book</h2>
+        <form>
+            <label for = 'name'>Name</label>
+            <input type="text" name="name" id="name">
+            <label for = 'author'>Author</label>
+            <input type="text" name="author" id="author">
+            <label for = 'img1'>Img URL</label>
+            <input type="text" name="img1" id="img1">
+            <label for = ''>Price</label>
+            <input type="text" name="price" id="price">
+            <label for="drop">In stock</label>
+            <select id="drop">
+                <option>Select One</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <div class="form-buttons">
+                <button id="reset-button" type="reset">Reset</button>
+                <button id="submit" type="submit">Submit</button>
+            </div>
+        </form>
     </section>
     <section class="current-library">
-        HI
+        <div class="book">
+            <img src="https://m.media-amazon.com/images/I/71YvMAT+xNL._AC_UF1000,1000_QL80_.jpg">
+            <div class="book_info">
+                <h2 class="book_title">Friday I'm in Love</h2>
+                <h2 class="book_author">Camryn Garrett</h2>
+                <p class="book_price">$18.99</p>
+                <button class="in-stock-button">In stock</button><br>
+                <button class="remove-button">Remove</button>
+            </div>
+        </div>
     </section>
 </div>
 </body>
