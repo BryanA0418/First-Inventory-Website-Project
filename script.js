@@ -1,10 +1,14 @@
 const book = document.querySelector(".current-library");
-const submit = document.querySelector("#submit");
-// const form = document.querySelector("form");
+// const submit = document.querySelector("#submit");
+const form = document.querySelector("form");
 let inventory = {};
+function removeBook(e){
+    e.target.parentNode.parentNode.remove();
+}
 
-submit.addEventListener("click",(e)=>{
-    e.preventDefault()
+
+form.addEventListener("submit",(e)=>{
+    e.preventDefault();
     const div = document.createElement("div");
     div.classList.add("book")
     const pic = document.getElementById("img1").value
@@ -25,6 +29,7 @@ submit.addEventListener("click",(e)=>{
     removeButton.classList.add("remove-button");
     inStockButton.innerText = "In stock";
     removeButton.innerText = "Remove";
+    removeButton.addEventListener("click",removeBook);
     const br = document.createElement("br");
     const price = `$${document.getElementById("price").value}`
     const author = document.getElementById("author").value;
@@ -41,4 +46,10 @@ submit.addEventListener("click",(e)=>{
     div.append(bookDiv);
     book.append(div);
     inventory[name] = document.getElementById("drop").value;
+    if(document.getElementById("drop").value < 1){
+        inStockButton.classList.remove("in-stock-button");
+        inStockButton.classList.add("out-of-stock-button");
+        inStockButton.innerText = "Out of Stock";
+    }
+    form.reset();
 })

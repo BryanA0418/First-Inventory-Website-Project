@@ -15,22 +15,15 @@
         <h2 class="add-new-book">Add New Book</h2>
         <form>
             <label for = 'name'>Name</label>
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="name" required>
             <label for = 'author'>Author</label>
-            <input type="text" name="author" id="author">
+            <input type="text" name="author" id="author" required>
             <label for = 'img1'>Img URL</label>
-            <input type="text" name="img1" id="img1">
+            <input type="text" name="img1" id="img1" required>
             <label for = ''>Price</label>
-            <input type="text" name="price" id="price">
+            <input type="text" name="price" id="price" required>
             <label for="drop">In stock</label>
-            <select id="drop">
-                <option>Select One</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
+            <input type="number" id="drop" required>
             <div class="form-buttons">
                 <button id="reset-button" type="reset">Reset</button>
                 <button id="submit" type="submit">Submit</button>
