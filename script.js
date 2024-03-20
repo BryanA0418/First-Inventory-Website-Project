@@ -1,3 +1,12 @@
+let bookCollection;
+if(localStorage.getItem("books")){
+bookCollection = JSON.parse(localStorage.getItem("books"))
+}else{
+    const arrOfBooks = [];
+    localStorage.setItem("books",JSON.stringify(arrOfBooks));
+    bookCollection = JSON.parse(localStorage.getItem("books"));
+}
+console.log(bookCollection);
 const book = document.querySelector(".current-library");
 // const submit = document.querySelector("#submit");
 const form = document.querySelector("form");
@@ -5,8 +14,9 @@ let inventory = {};
 function removeBook(e){
     e.target.parentNode.parentNode.remove();
 }
-
-
+bookCollection.forEach(element => {
+    book.append(element)
+});
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
     const div = document.createElement("div");
@@ -44,7 +54,7 @@ form.addEventListener("submit",(e)=>{
     bookDiv.append(br);
     bookDiv.append(removeButton)
     div.append(bookDiv);
-    book.append(div);
+    // book.append(div);
     inventory[name] = document.getElementById("drop").value;
     if(document.getElementById("drop").value < 1){
         inStockButton.classList.remove("in-stock-button");
@@ -52,4 +62,6 @@ form.addEventListener("submit",(e)=>{
         inStockButton.innerText = "Out of Stock";
     }
     form.reset();
-})
+    bookCollection.push(String(div));
+    localStorage.setItem("books",JSON.stringify(bookCollection));
+});
