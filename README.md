@@ -1,6 +1,5 @@
 # First-Inventory-Website-Project.
 
-Brief description or introduction of the project.
  This is an book store Inventory where you can add books that will be on sale and keep track of there inventory.
 Features
 
